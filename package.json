@@ -1,0 +1,23 @@
+{
+  "name": "graphql-chain",
+  "version": "1.0.0",
+  "description": "A toy project resolver chain works in GraphQL-yoga",
+  "main": "index.js",
+  "author": "Simone Biffi <simone.biffi.91@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "nodemon",
+    "check:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fastify": "^4.20.0",
+    "graphql": "^16.7.1",
+    "graphql-yoga": "^4.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "typescript": "^5.1.6",
+    "prettier": "^2.8.8"
+  }
+}
