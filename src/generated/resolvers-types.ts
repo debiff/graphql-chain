@@ -18,12 +18,12 @@ export type Scalars = {
 
 export type Post = {
   readonly __typename: 'Post';
+  readonly author: User;
   readonly body: Scalars['String']['output'];
   readonly id: Scalars['ID']['output'];
   readonly publication_date?: Maybe<Scalars['String']['output']>;
   readonly published: Scalars['Boolean']['output'];
   readonly title: Scalars['String']['output'];
-  readonly user: User;
   readonly userId: Scalars['Int']['output'];
 };
 
@@ -143,12 +143,12 @@ export type ResolversParentTypes = ResolversObject<{
 }>;
 
 export type PostResolvers<ContextType = any, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = ResolversObject<{
+  author?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   body?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>;
   publication_date?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   published?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   title?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
-  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>;
   userId?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
