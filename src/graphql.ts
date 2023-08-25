@@ -3,11 +3,13 @@ import { FastifyBaseLogger, FastifyReply, FastifyRequest } from "fastify";
 import { readFileSync } from "fs";
 import * as path from "path";
 import { resolvers } from "./resolvers";
+import { DataService } from "./dataService";
 
 export type Deps = Readonly<{
   logger: FastifyBaseLogger;
+  dataService: DataService;
 }>;
-export const createGraphqlServer = ({ logger }: Deps) => {
+export const createGraphqlServer = ({ logger, dataService }: Deps) => {
   const typeDefs = readFileSync(
     path.resolve(__dirname, "..", "schema.graphql"),
     "utf8"
@@ -20,7 +22,7 @@ export const createGraphqlServer = ({ logger }: Deps) => {
   >({
     schema: createSchema({
       typeDefs,
-      resolvers: resolvers({ logger })
+      resolvers: resolvers({ logger, dataService })
     }),
     logging: logger
   });

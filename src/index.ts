@@ -1,5 +1,6 @@
 import Fastify from "fastify";
 import { createGraphqlServer } from "./graphql";
+import { DataService } from "./dataService";
 const bootstrap = async () => {
   const fastify = Fastify({
     // Integrate Fastify logger
@@ -8,7 +9,9 @@ const bootstrap = async () => {
 
   const logger = fastify.log;
 
-  const graphQLServer = createGraphqlServer({ logger });
+  const dataService = new DataService();
+
+  const graphQLServer = createGraphqlServer({ logger, dataService });
 
   fastify.route({
     url: graphQLServer.graphqlEndpoint,
