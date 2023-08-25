@@ -10,7 +10,7 @@ type Post {
     body: String!
     published: Boolean!
     publication_date: String
-    user: User!,
+    author: User!,
     userId: Int!
 }
 

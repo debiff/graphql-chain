@@ -21,10 +21,10 @@ export const toGqlPost = ({
   publication_date: publication_date !== null ? publication_date : undefined,
   body,
   userId,
-  user: null as unknown as GqlUser
+  author: null as unknown as GqlUser
 });
 export const PostResolver: (
   deps: ResolversDependencies
 ) => NonNullable<GqlResolvers["Post"]> = deps => ({
-  user: UserResolver(deps)
+  author: UserResolver(deps)
 });
